@@ -1,0 +1,69 @@
+﻿@model MOSAIK.Models.Produto
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Editar</h1>
+
+<h4>Produto</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="ProdutoId" />
+            <div class="form-group">
+                <label asp-for="NomeProduto" class="control-label">Produto</label>
+                <input asp-for="NomeProduto" class="form-control" />
+                <span asp-validation-for="NomeProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="DescricaoProduto" class="control-label">Descrição</label>
+                <input asp-for="DescricaoProduto" class="form-control" />
+                <span asp-validation-for="DescricaoProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TipoProdutoId" class="control-label">Tipo do Produto</label>
+                <select asp-for="TipoProdutoId" class="form-control" asp-items="ViewBag.TipoProdutoId"></select>
+                <span asp-validation-for="TipoProdutoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PrecoProduto" class="control-label">Preço</label>
+                <input asp-for="PrecoProduto" class="form-control" />
+                <span asp-validation-for="PrecoProduto" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="QtdEstoque" class="control-label">Estoque</label>
+                <input asp-for="QtdEstoque" class="form-control" />
+                <span asp-validation-for="QtdEstoque" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="MarcaId" class="control-label">Marca</label>
+                <select asp-for="MarcaId" class="form-control" asp-items="ViewBag.MarcaId"></select>
+                <span asp-validation-for="MarcaId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="SecaoId" class="control-label">Seção</label>
+                <select asp-for="SecaoId" class="form-control" asp-items="ViewBag.SecaoId"></select>
+                <span asp-validation-for="SecaoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TamanhoId" class="control-label">Tamanho</label>
+                <select asp-for="TamanhoId" class="form-control" asp-items="ViewBag.TamanhoId"></select>
+                <span asp-validation-for="TamanhoId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-segundo" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-primary">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

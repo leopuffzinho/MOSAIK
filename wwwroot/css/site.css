@@ -1,0 +1,120 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+    margin-bottom: 60px;
+    background-color: #F1EFE7 !important
+}
+
+.display-4 {
+
+    text-align: center
+}
+
+.logo {
+    width: 75px;
+    height: 75px
+}
+
+.menu {
+    background-color: #BBB3A5 !important
+}
+
+.rodape {
+    background-color: #BBB3A5 !important;
+    padding-left: 20px;
+    color: black;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.nav-item {
+    margin-right: 50px;
+    font-family: Arial, Helvetica, sans-serif
+}
+
+.nav-item :hover {
+    color: #F1EFE7 !important;
+}
+
+.navbar-nav {
+    margin-left: 125px;
+}
+
+.btn-primary {
+    background: none !important;
+    margin-left: -10px;
+    color: #594D4b !important;
+    border: none !important;
+    border-radius: 4px !important;
+}
+
+.btn-primary:hover {
+    color: #D6C7AC !important;
+}
+
+.btn-segundo {
+    padding-top: 3px;
+    margin-top: 5px;
+    height: 35px;
+    background: #594D4b;
+    color: #F1EFE7 !important;
+    border: none !important;
+    border-radius: 4px !important;
+}
+
+.btn-segundo:hover {
+    color: #594D4b !important;
+    background: none !important;
+    border: 1px solid #473533 !important
+}
+
+.input-validation-error {
+    border-radius: 5px !important;
+    border: 1.5px solid #594D4b   !important;
+    height: 37px;
+    margin-top: 5px
+}
+
+.btn-danger2 {
+    margin: 5px;
+    background: none !important;
+    color: #594D4b !important;
+    border: none !important;
+    border-radius: 4px !important;
+}
+
+.btn-danger2:hover {
+    color: #F1EFE7 !important;
+}
+
+.btn-pesquisa {
+    margin-top: -4px;
+    padding-top: 3px;
+    height: 35px;
+    background: #594D4b;
+    color: #F1EFE7 !important;
+    border: none !important;
+    border-radius: 4px !important;
+}
+
+.btn-pesquisa:hover {
+    color: #594D4b !important;
+    background: none !important;
+    border: 1px solid #473533 !important
+}

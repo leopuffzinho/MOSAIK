@@ -1,0 +1,56 @@
+﻿@model IEnumerable<MOSAIK.Models.Compra>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Compra</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<div>
+    @using (Html.BeginForm("Index", "Compra", FormMethod.Get))
+    {
+        <p>
+            Digite aqui sua pesquisa: @Html.TextBox("pesquisa")
+            <input class="btn btn-pesquisa" type="submit" value="Pesquisar" />
+        </p>
+    }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Cliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TotalCompra)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DataCompra)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cliente.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalCompra)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DataCompra)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.CompraId" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.CompraId" class="btn btn-primary">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.CompraId" class="btn btn-primary">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

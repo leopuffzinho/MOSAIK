@@ -1,0 +1,86 @@
+﻿@model IEnumerable<MOSAIK.Models.Produto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Produto</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<div>
+    @using (Html.BeginForm("Index", "Produto", FormMethod.Get))
+    {
+        <p>
+            Digite aqui sua pesquisa: @Html.TextBox("pesquisa")
+            <input class="btn btn-pesquisa" type="submit" value="Pesquisar" />
+        </p>
+    }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DescricaoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TipoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PrecoProduto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.QtdEstoque)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Marca)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Secao)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tamanho)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DescricaoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TipoProduto.NomeTipoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PrecoProduto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.QtdEstoque)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Marca.NomeMarca)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Secao.NomeSecao)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Tamanho.NomeTamanho)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.ProdutoId" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.ProdutoId" class="btn btn-primary">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.ProdutoId" class="btn btn-segundo">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

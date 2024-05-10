@@ -1,0 +1,44 @@
+﻿@model IEnumerable<MOSAIK.Models.Marca>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Marca</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<div>
+    @using (Html.BeginForm("Index", "Marca", FormMethod.Get))
+    {
+        <p>
+            Digite aqui sua pesquisa: @Html.TextBox("pesquisa")
+            <input class="btn btn-pesquisa"type="submit" value="Pesquisar" />
+        </p>
+    }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeMarca)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeMarca)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.MarcaId" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.MarcaId" class="btn btn-primary">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.MarcaId" class="btn btn-primary">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

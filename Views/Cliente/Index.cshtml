@@ -1,0 +1,68 @@
+﻿@model IEnumerable<MOSAIK.Models.Cliente>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Cliente</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-segundo">Criar Novo</a>
+</p>
+<div>
+    @using (Html.BeginForm("Index", "Cliente", FormMethod.Get))
+    {
+        <p>
+            Digite aqui sua pesquisa: @Html.TextBox("pesquisa")
+            <input class="btn btn-pesquisa" type="submit" value="Pesquisar" />
+        </p>
+    }
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SexoCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TelefoneCliente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ClienteEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CpfCliente)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SexoCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TelefoneCliente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ClienteEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CpfCliente)
+            </td>
+            <td>
+                    <a asp-action="Edit" asp-route-id="@item.ClienteId" class="btn btn-primary">Editar</a>
+                    <a asp-action="Details" asp-route-id="@item.ClienteId" class="btn btn-primary">Detalhes</a>
+                    <a asp-action="Delete" asp-route-id="@item.ClienteId" class="btn btn-primary">Deletar</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
