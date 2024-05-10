@@ -29,7 +29,8 @@ body {
 
 .logo {
     width: 75px;
-    height: 75px
+    height: 75px;
+    margin-left: 30px
 }
 
 .menu {
@@ -38,14 +39,16 @@ body {
 
 .rodape {
     background-color: #BBB3A5 !important;
-    padding-left: 20px;
+    padding-left: 38px;
     color: black;
     font-family: Arial, Helvetica, sans-serif
 }
 
 .nav-item {
-    margin-right: 50px;
-    font-family: Arial, Helvetica, sans-serif
+    margin-right: 70px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px
+
 }
 
 .nav-item :hover {
@@ -53,15 +56,15 @@ body {
 }
 
 .navbar-nav {
-    margin-left: 125px;
+    justify-content: center
 }
 
 .btn-primary {
     background: none !important;
-    margin-left: -10px;
+    margin-top: 7px;
     color: #594D4b !important;
     border: none !important;
-    border-radius: 4px !important;
+    padding-left: 0px !important
 }
 
 .btn-primary:hover {
@@ -69,7 +72,7 @@ body {
 }
 
 .btn-segundo {
-    padding-top: 3px;
+    padding-top: 5px;
     margin-top: 5px;
     height: 35px;
     background: #594D4b;
@@ -97,6 +100,8 @@ body {
     color: #594D4b !important;
     border: none !important;
     border-radius: 4px !important;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px
 }
 
 .btn-danger2:hover {
@@ -105,7 +110,7 @@ body {
 
 .btn-pesquisa {
     margin-top: -4px;
-    padding-top: 3px;
+    padding-top: 5px;
     height: 35px;
     background: #594D4b;
     color: #F1EFE7 !important;
