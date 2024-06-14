@@ -21,6 +21,11 @@ namespace MOSAIK.Models
 
         public string DescricaoProduto { get; set; } = string.Empty;
 
+        [Column("FotoProduto")]
+        [Display(Name = "Foto")]
+
+        public string FotoProduto { get; set; } = string.Empty;
+
         [ForeignKey("TipoProdutoId")]
         public int TipoProdutoId { get; set; }
         [Display(Name = "Tipo do Produto")]

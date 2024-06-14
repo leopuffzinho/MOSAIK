@@ -83,7 +83,7 @@ namespace MOSAIK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ProdutoId,NomeProduto,DescricaoProduto,TipoProdutoId,PrecoProduto,QtdEstoque,MarcaId,SecaoId,TamanhoId")] Produto produto)
+        public async Task<IActionResult> Create([Bind("ProdutoId,NomeProduto,DescricaoProduto,TipoProdutoId,PrecoProduto,QtdEstoque,MarcaId,SecaoId,TamanhoId, FotoProduto")] Produto produto)
         {
             if (ModelState.IsValid)
             {
@@ -123,7 +123,7 @@ namespace MOSAIK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ProdutoId,NomeProduto,DescricaoProduto,TipoProdutoId,PrecoProduto,QtdEstoque,MarcaId,SecaoId,TamanhoId")] Produto produto)
+        public async Task<IActionResult> Edit(int id, [Bind("ProdutoId,NomeProduto,DescricaoProduto,TipoProdutoId,PrecoProduto,QtdEstoque,MarcaId,SecaoId,TamanhoId, FotoProduto")] Produto produto)
         {
             if (id != produto.ProdutoId)
             {
