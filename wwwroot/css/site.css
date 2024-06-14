@@ -124,6 +124,13 @@ body {
     border: 1px solid #473533 !important
 }
 
+.fotoProduto {
+    height: 150px;
+    width: 150px;
+    object-fit: cover;
+}
+}
+
 .btn-primary.active, .btn-primary:active, .btn:active, .btn.active {
     color: #D6C7AC !important;
     border: 1px solid #D6C7AC !important;
