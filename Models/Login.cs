@@ -20,10 +20,5 @@ namespace MOSAIK.Models
         [Display(Name = "Senha")]
 
         public string SenhaUsuario { get; set; } = string.Empty;
-
-        [ForeignKey("ClienteId")]
-        public int ClienteId { get; set; }
-        public Cliente? Cliente { get; set; }
-
     }
 }

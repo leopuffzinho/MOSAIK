@@ -19,10 +19,23 @@ namespace MOSAIK.Controllers
         }
 
         // GET: Login
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string pesquisa)
         {
-            var contexto = _context.Login.Include(l => l.Cliente);
-            return View(await contexto.ToListAsync());
+            if (pesquisa == null)
+            {
+                return _context.Login != null ?
+                          View(await _context.Login.ToListAsync()) :
+                          Problem("Entity set 'Contexto.Login'  is null.");
+            }
+            else
+            {
+                var login =
+                    _context.Login
+                    .Where(x => x.NomeUsuario.Contains(pesquisa))
+                    .OrderBy(x => x.NomeUsuario);
+
+                return View(login);
+            }
         }
 
         // GET: Login/Details/5
@@ -34,7 +47,6 @@ namespace MOSAIK.Controllers
             }
 
             var login = await _context.Login
-                .Include(l => l.Cliente)
                 .FirstOrDefaultAsync(m => m.LoginId == id);
             if (login == null)
             {
@@ -47,7 +59,6 @@ namespace MOSAIK.Controllers
         // GET: Login/Create
         public IActionResult Create()
         {
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "NomeCliente");
             return View();
         }
 
@@ -56,7 +67,7 @@ namespace MOSAIK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("LoginId,NomeUsuario,SenhaUsuario,ClienteId")] Login login)
+        public async Task<IActionResult> Create([Bind("LoginId,NomeUsuario,SenhaUsuario")] Login login)
         {
             if (ModelState.IsValid)
             {
@@ -64,7 +75,6 @@ namespace MOSAIK.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "NomeCliente", login.ClienteId);
             return View(login);
         }
 
@@ -81,7 +91,6 @@ namespace MOSAIK.Controllers
             {
                 return NotFound();
             }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "NomeCliente", login.ClienteId);
             return View(login);
         }
 
@@ -90,7 +99,7 @@ namespace MOSAIK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("LoginId,NomeUsuario,SenhaUsuario,ClienteId")] Login login)
+        public async Task<IActionResult> Edit(int id, [Bind("LoginId,NomeUsuario,SenhaUsuario")] Login login)
         {
             if (id != login.LoginId)
             {
@@ -117,7 +126,6 @@ namespace MOSAIK.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["ClienteId"] = new SelectList(_context.Cliente, "ClienteId", "NomeCliente", login.ClienteId);
             return View(login);
         }
 
@@ -130,7 +138,6 @@ namespace MOSAIK.Controllers
             }
 
             var login = await _context.Login
-                .Include(l => l.Cliente)
                 .FirstOrDefaultAsync(m => m.LoginId == id);
             if (login == null)
             {
@@ -162,6 +169,29 @@ namespace MOSAIK.Controllers
         private bool LoginExists(int id)
         {
           return (_context.Login?.Any(e => e.LoginId == id)).GetValueOrDefault();
+        }
+
+        public IActionResult Login(Login usuario)
+        {
+            if (usuario.NomeUsuario == "" || usuario.NomeUsuario == null)
+            {
+                return View();
+            }
+            else
+            {
+                var verificaUsuario = _context.Login
+                    .Where(x => x.NomeUsuario == usuario.NomeUsuario && x.SenhaUsuario == usuario.SenhaUsuario)
+                    .FirstOrDefault();
+                if (verificaUsuario == null)
+                {
+                    ViewBag.Mensagem = "Usuário ou Senha Inválidos!! Tente Novamente.";
+                    return View();
+                }
+                else
+                {
+                    return View("~/Views/Home/Index.cshtml");
+                }
+            }
         }
     }
 }

@@ -1,0 +1,35 @@
+﻿@model MOSAIK.Models.Login
+@{
+    Layout = null;
+}
+<link href="~/css/Login.css" rel="stylesheet" />
+<div class="text-center">
+    <form asp-action="Login">
+        <main>
+            <section class="box">
+                <div class="img">
+                    <img class="logo" src="/img/Mosaik.png" />
+                </div>
+                <form>
+                    <div class="form-input">
+                        <label asp-for="NomeUsuario">Usuário:</label>
+                        <input asp-for="NomeUsuario" />                        
+                    </div>
+                    <div class ="form-input">
+                        <label asp-for="SenhaUsuario">Senha:</label>
+                        <input asp-for="SenhaUsuario" type="password" />
+                    </div>
+                    <br />
+                    <h4>@ViewBag.Mensagem</h4>
+                    <span asp-validation-for="NomeUsuario"></span>
+                     <br />
+                    <span asp-validation-for="SenhaUsuario"></span>
+                    <br />
+                    <div class="btnEntrar">
+                        <input type="submit" value="ENTRAR" class="btn-1" />
+                    </div>
+                </form>
+            </section>
+        </main>
+    </form>
+</div>
