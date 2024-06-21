@@ -14,10 +14,6 @@ namespace MOSAIK.Models
         [Display(Name = "Nome")]
         public string NomeCliente { get; set; } = string.Empty;
 
-        [Column("SexoCliente")]
-        [Display(Name = "Sexo")]
-        public string SexoCliente { get; set; } = string.Empty;
-
         [Column("TelefoneCliente")]
         [Display(Name = "Telefone")]
         public string TelefoneCliente { get; set; } = string.Empty;
@@ -29,5 +25,9 @@ namespace MOSAIK.Models
         [Column("CpfCliente")]
         [Display(Name = "CPF")]
         public string CpfCliente { get; set; } = string.Empty;
+
+        [Column("SenhaCliente")]
+        [Display(Name = "Senha")]
+        public string SenhaCliente { get; set; } = string.Empty;
     }
 }

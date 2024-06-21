@@ -67,7 +67,7 @@ namespace MOSAIK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("ClienteId,NomeCliente,SexoCliente,TelefoneCliente,ClienteEmail,CpfCliente")] Cliente cliente)
+        public async Task<IActionResult> Create([Bind("ClienteId,NomeCliente,SenhaCliente,TelefoneCliente,ClienteEmail,CpfCliente")] Cliente cliente)
         {
             if (ModelState.IsValid)
             {
@@ -99,7 +99,7 @@ namespace MOSAIK.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("ClienteId,NomeCliente,SexoCliente,TelefoneCliente,ClienteEmail,CpfCliente")] Cliente cliente)
+        public async Task<IActionResult> Edit(int id, [Bind("ClienteId,NomeCliente,SenhaCliente,TelefoneCliente,ClienteEmail,CpfCliente")] Cliente cliente)
         {
             if (id != cliente.ClienteId)
             {
